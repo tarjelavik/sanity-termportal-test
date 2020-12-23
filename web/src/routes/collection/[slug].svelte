@@ -9,6 +9,9 @@
     const filter = '*[_type == "collection" && _id == $slug][0]';
     const projection = `{
       ...,
+      'hasMember': *[references(^._id)]{ 
+        ...
+      },
     }`;
 
     const query = filter + projection;
