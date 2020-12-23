@@ -17,7 +17,10 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
-    "@sanity/code-input"
+    "@sanity/code-input",
+    "@andre-brdoch/sanity-plugin-schema-inspector",
+    "dashboard-widget-notes",
+    "minesweeper"
   ],
   "parts": [
     {

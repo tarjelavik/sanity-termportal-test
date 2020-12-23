@@ -1,12 +1,8 @@
 export default {
   widgets: [
-    {
-      name: 'sanity-tutorials',
-      options: {
-        templateRepoId: 'sanity-io/sanity-template-gatsby-blog'
-      }
-    },
-    {name: 'structure-menu'},
+    {name: 'structure-menu', layout: {width: 'medium'}},
+    {name: 'notes'},
+    {name: 'minesweeper', layout: {width: 'medium'}},
     {
       name: 'project-info',
       options: {
@@ -46,7 +42,7 @@ export default {
     {name: 'project-users', layout: {height: 'auto'}},
     {
       name: 'document-list',
-      options: {title: 'Recent blog posts', order: '_createdAt desc', types: ['post']},
+      options: {title: 'Recent concepts', order: '_createdAt desc', types: ['concept']},
       layout: {width: 'medium'}
     }
   ]
