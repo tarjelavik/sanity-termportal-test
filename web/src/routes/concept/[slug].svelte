@@ -6,31 +6,21 @@
     // the `slug` parameter is available because
     // this file is called [slug].html
     const { slug } = params;
-    const filter = '*[_type == "post" && slug.current == $slug][0]';
+    const filter = '*[_type == "concept" && _id == $slug][0]';
     const projection = `{
       ...,
-      body[]{
-        ...,
-        children[]{
-          ...,
-          _type == 'authorReference' => {
-            _type,
-            author->
-          }
-        }
-      }
     }`;
 
     const query = filter + projection;
-    const post = await client
+    const concept = await client
       .fetch(query, { slug })
-      .catch(err => this.error(500, err));
-    return { post };
+      .catch((err) => this.error(500, err));
+    return { concept };
   }
 </script>
 
 <script>
-  export let post;
+  export let concept;
 </script>
 
 <style>
@@ -58,11 +48,11 @@
 </style>
 
 <svelte:head>
-  <title>{post.title}</title>
+  <title>{concept.label}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
+<h1>{concept.label}</h1>
 
 <div class="content">
-  <BlockContent blocks={post.body} {serializers} />
+  <pre>{JSON.stringify(concept, null, 2)}</pre>
 </div>
