@@ -59,6 +59,7 @@ export default {
       name: 'documentedIn',
       title: 'Dokumentert i',
       titleEN: 'Documented in',
+      description: '[Kan endres slik at man kan si mer om kilden]',
       type: 'array',
       of: [
         {
